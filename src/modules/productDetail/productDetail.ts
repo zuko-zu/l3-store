@@ -17,10 +17,15 @@ class ProductDetail extends Component {
   }
 
   async render() {
+    console.log(window.userId)
     const urlParams = new URLSearchParams(window.location.search);
     const productId = Number(urlParams.get('id'));
 
-    const productResp = await fetch(`/api/getProduct?id=${productId}`);
+    const productResp = await fetch(`/api/getProduct?id=${productId}`, {
+      headers: {
+        'x-userid': window.userId
+      }
+    });
     this.product = await productResp.json();
 
     if (!this.product) return;
@@ -52,6 +57,7 @@ class ProductDetail extends Component {
       .then((products) => {
         this.more.update(products);
       });
+      console.log(window.userId)
   }
 
   private _addToCart() {

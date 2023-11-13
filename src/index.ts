@@ -3,9 +3,17 @@ import Router from "./router";
 import { cartService } from "./services/cart.service";
 import { userService } from "./services/user.service";
 
-new Router();
-cartService.init();
-userService.init();
+async function processUserService() {
+  await userService.init();
+}
+
+processUserService()
+  .then(() => {
+    const router = new Router();
+
+    router.route();
+    cartService.get();
+  })
 
 setTimeout(() => {
   document.body.classList.add("is__ready");
