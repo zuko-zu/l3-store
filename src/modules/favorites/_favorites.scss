@@ -1,7 +1,21 @@
-.favorites__products {
-  flex-grow: 1;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.favorites {
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px 10px;
+  }
+
+  &__empty {
+    display: none;
+  }
+
+  &.is__empty {
+    .favorites__empty {
+      display: block;
+    }
+
+    .favorites__in {
+      display: none;
+    }
+  }
 }
