@@ -1,0 +1,37 @@
+.search-tips {
+  width: 900px;
+  margin: 0 auto;
+
+  color:  #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 24px; 
+}
+
+.suggestion {
+  display: flex;
+  align-items: baseline;
+}
+
+.search-tip-wrapper {
+  width: fit-content;
+  padding: 4px 6px 8px;
+  background-color: #F6F6FA;
+  border-radius: 8px;
+}
+
+.search-tip {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 24px;
+
+  position: relative;
+  line-height: 28px;
+  text-decoration: none;
+  background: linear-gradient(93deg, #DA15B8 4.93%, #8D06CC 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
