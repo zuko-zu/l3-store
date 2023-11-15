@@ -3,6 +3,7 @@ import { View } from '../../utils/view';
 import { formatPrice } from '../../utils/helpers'
 import html from './product.tpl.html';
 import { ProductData } from 'types';
+import { analyticsService } from '../../services/eventAnalytics.service';
 
 type ProductComponentParams = { [key: string]: any };
 
@@ -19,6 +20,18 @@ export class Product {
 
   attach($root: HTMLElement) {
     $root.appendChild(this.view.root);
+    this.observeViewport();
+  }
+
+  observeViewport() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          analyticsService.trackViewCard(this.product);
+        }
+      });
+    });
+    observer.observe(this.view.root);
   }
 
   render() {

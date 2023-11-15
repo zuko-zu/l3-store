@@ -46,10 +46,10 @@ class AnalyticsService {
     });
   }
 
-  async trackViewCard(cardProperties: ProductData, secretKey: string) {
+  async trackViewCard(cardProperties: ProductData) {
     this.sendEvent({
       type: cardProperties.log ? EventType.ViewCardPromo : EventType.ViewCard,
-      payload: { ...cardProperties, secretKey: secretKey },
+      payload: cardProperties,
       timestamp: Date.now()
     });
   }

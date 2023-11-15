@@ -42,7 +42,6 @@ class ProductDetail extends Component {
       .then((res) => res.json())
       .then((secretKey) => {
         this.view.secretKey.setAttribute('content', secretKey);
-        if (this.product) analyticsService.trackViewCard(this.product, secretKey)
       });
 
     fetch('/api/getPopularProducts')
