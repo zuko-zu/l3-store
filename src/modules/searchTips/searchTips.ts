@@ -14,27 +14,30 @@ export class SearchTips {
     $root.appendChild(this.view.root);
   }
 
-  async render() {
-    const tipsData = [
+  getTips() {
+    return [
       {
-          name: "чехол iphone 13 pro",
-          link: '#'
+        name: "чехол iphone 13 pro",
+        link: '#'
       },
       {
-          name: "коляски agex",
-          link: '#'
+        name: "коляски agex",
+        link: '#'
       },
       {
-          name: "яндекс станция 2",
-          link: '#'
+        name: "яндекс станция 2",
+        link: '#'
       },
-  ]
-    
+    ]
+  } 
+
+  async render() {    
+    const tips = this.getTips()
     const hintElements = this.view.searchTips.querySelectorAll('.search-tip');
 
     hintElements.forEach((element: HTMLLinkElement, i: number) => {
-      element.innerHTML = tipsData[i].name;
-      element.href = tipsData[i].link;
+      element.innerHTML = tips[i].name;
+      element.href = tips[i].link;
     });
   }
 }
