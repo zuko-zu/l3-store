@@ -48,7 +48,7 @@ class AnalyticsService {
 
   async trackViewCard(cardProperties: ProductData) {
     this.sendEvent({
-      type: cardProperties.log ? EventType.ViewCardPromo : EventType.ViewCard,
+      type: Object.keys(cardProperties.log).length > 0 ? EventType.ViewCardPromo : EventType.ViewCard,
       payload: cardProperties,
       timestamp: Date.now()
     });
